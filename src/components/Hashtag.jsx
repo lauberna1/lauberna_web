@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { hashtags } from "../data/hashtags";
+
+// Rotador minimalista de hashtags para aportar dinamismo al perfil.
 const Hashtag = () => {
-  const textArray = [
-    "Musico",
-    "Deportista",
-    "Estudiante",
-    "Programador",
-    "Dj",
-    "Humano",
-    "Vivo",
-  ];
-  const [text, setText] = useState(textArray[0]);
+  const [text, setText] = useState(hashtags[0]);
   useEffect(() => {
     const interval = setInterval(() => {
-      const currentIndex = textArray.indexOf(text);
-      const nextIndex = (currentIndex + 1) % textArray.length;
-      setText(textArray[nextIndex]);
+      const currentIndex = hashtags.indexOf(text);
+      const nextIndex = (currentIndex + 1) % hashtags.length;
+      setText(hashtags[nextIndex]);
     }, 1400);
 
     return () => clearInterval(interval);

@@ -4,37 +4,62 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
 }
+
 .study {
   width: 90%;
+  max-width: 1250px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: clamp(20px, 2vw, 28px);
-  margin-top: clamp(30px, 3vw, 50px);
-  margin-bottom: clamp(30px, 3vw, 50px);
+  gap: 35px;
+  padding-bottom: 80px;
 }
+
+.cards {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
 .tittleS {
-  text-align: center;
-  font-size: 45px;
-  color: rgb(254, 254, 254);
+  width: 100%;
+  text-align: left;
+  font-size: 40px;
+  color: rgba(238, 255, 254, 0.936);
   height: fit-content;
+  z-index: 9999;
+}
+
+.certificateLink {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: solid 1px transparent;
+  transition: border-color 0.35s ease;
 }
 .card {
-  height: 90px;
   position: relative;
-  border-radius: 20px;
+  width: calc(100% - 60px);
+  height: 90px;
   padding: 30px;
-  width: 70%;
+  border-radius: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgb(20, 20, 20);
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
   justify-content: space-between;
+  background: rgb(0, 29, 30);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
+  transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
 }
 .card::after {
   opacity: 0;
@@ -46,39 +71,51 @@
   background-size: 100%;
   height: 100%;
   position: absolute;
-  background-image: url("/photo-1557682224-5b8590cd9ec5.webp");
+  background-image: linear-gradient(
+    150deg,
+    rgb(0, 75, 63),
+    rgb(0, 154, 141) 15%,
+    rgb(0, 160, 162),
+    rgb(0, 158, 129) 100%
+  );
   transition: opacity 0.2s ease-in-out;
   background-position: 300% 99%;
   background-size: 150%;
 }
-.card:hover {
+.cardHasCertificate:hover {
   transform: scale(1.02);
 }
-.card:hover .title {
+.cardHasCertificate:hover .title {
   color: white;
 }
-.card:hover::after {
+.cardHasCertificate:hover::after {
   opacity: 1;
 }
-.card:hover .line {
+.cardHasCertificate:hover .line {
   opacity: 1;
   width: 35%;
 }
 .cardHeader {
   height: 80px;
-  width: 40%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 .title {
-  background: linear-gradient(to right, rgb(221, 0, 255), rgb(253, 152, 0));
+  background: linear-gradient(
+    150deg,
+    rgb(0, 100, 83),
+    rgb(5, 225, 207) 15%,
+    rgb(0, 206, 209),
+    rgb(0, 158, 129) 100%
+  );
   background-clip: text;
   color: transparent;
   background-position: 120% 50%;
-  font-size: 23px;
-  width: 70%;
+  font-size: 22px;
+  width: fit-content;
   transition: color 0.1s ease-in-out;
 }
 .icons {
@@ -109,13 +146,13 @@
   justify-content: center;
   gap: 10px;
   align-items: flex-end;
-  width: 40%;
+  width: 100%;
 }
-.card:hover .tit {
+.cardHasCertificate:hover .tit {
   color: white;
 }
 .tit {
-  width: 75%;
+  width: 80%;
   color: rgba(255, 255, 255, 0.681);
   font-size: 20px;
   text-align: right;
@@ -123,78 +160,38 @@
 .time {
   margin-top: 8px;
   display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  font-size: 18px;
-  color: white;
-  opacity: 0.7;
-}
-.cardSkills {
-  position: relative;
-  border-radius: 20px;
-  padding: 30px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: rgb(20, 20, 20);
-  overflow: hidden;
-  transition: all .2s ease-in-out;
-}
-.cardSkills::after {
-  opacity: 0;
-  z-index: -3;
-  content: "";
-  width: 150%;
-  left: -50px;
-  border-radius: 50px;
-  background-size: 100%;
-  height: 100%;
-  position: absolute;
-  background-image: url("/photo-1557682224-5b8590cd9ec5.webp");
-  transition: opacity 0.2s ease-in-out;
-  background-position: 300% 99%;
-  background-size: 150%;
-}
-.cardSkills:hover {
-  transform: scale(1.02);
-}
-.cardSkills:hover::after {
-  opacity: 1;
-}
-.skills{
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
+  justify-content: "center";
+/*   flecolor: white; */
+  opacit9 0.75;
   flex-wrap: wrap;
-  margin-top: clamp(30px, 3vw, 50px);
-  margin-bottom: clamp(30px, 3vw, 50px);
-  transition: all .2s ease-in-out;
-  gap: 20px;
+  text-align: right;
 }
-.skillCont{
-  transition: all .2s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.skillstype{
-  color: rgba(255, 255, 255, 0.622);
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-.skillIcons{
-  gap: 50px;
+.skills {
+.skills {
   width: 100%;
-  color: white;
+  max-width: 1250px;
+  justify-content: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: 5rap;
+  border: solid red;
+  flex-wrap: wrap;
+  gap: 352;
+  padding-bottom: 80px;
+
+.skillIcons {
+.skillIcons {
+  gap: 40px;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: space-between;
   flex-wrap: wrap;
-}
-.skillIcon{
+
+.skillIcon {
+.skillIcon {
   font-size: 35px;
   display: flex;
   justify-content: center;
@@ -203,56 +200,65 @@
   flex-direction: column;
   width: 40px;
 }
-.skillName{
+.skillName {
   font-weight: 700;
   font-size: 12px;
 }
 @media screen and (max-width: 1000px) {
-  .tit {
     font-size: 16px;
   }
-  .time {
+  .time,
+  .certificateLink {
     font-size: 15px;
   }
   .title {
-    font-size: 19px;
+  .title {
+    font-size: 18px;
   }
   .card:hover .line {
     opacity: 1;
-    width: 28%;
   }
   .tittleS {
-    font-size: 35px;
-  }
-  .skillIcon{
+  .tittleS {
     font-size: 30px;
   }
-  .skillName{
+  .skillIcon {
+    font-size: 30px;
+  }
+  .skillName {
     font-weight: 700;
     font-size: 12px;
   }
-}
-@media screen and (max-width: 1400px) {
-  .card {
-    width: 90%;
-    height: 70px;
+
+@media screen and (max-width: 800px) {
+  .line {
+
+
+.line {
+    display: none;
+  }6  .skills {
+    padding-bottom: 60px;
+  }study {
+    padding-bottom: 60px;
   }
 }
-@media screen and (max-width: 866px) {
-  .time {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 500px) {
+
+@media screen and (max-width: 700px) {
   .icons {
-    font-size: 3.8vw;
+    font-size: 16px;
     margin-top: 10px;
   }
   .tit {
     font-size: 12px;
   }
   .time {
-    font-size: 10px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+  }
+  .time,
+  .certificateLink {
+    font-size: 12px;
   }
   .title {
     width: 100%;
@@ -260,35 +266,31 @@
   }
   .info {
     justify-content: center;
+    justify-content: center;
     gap: 0px;
-    width: 50%;
   }
   .card {
-    height: 55px;
+    height: 60px  .tittleS {
+    font-size: 25px;
+  };
     min-height: 20px;
-    width: 76%;
   }
   .cardHeader {
     justify-content: center;
+    width: 50%;
     width: 50%;
   }
   .line {
     display: none;
   }
-  .tittleS {
-    font-size: 30px;
-  }
-  .cardSkills{
-    width: 90px;
-  }
-  .skillIcons{
-    gap: 20px;
-  }
-  .skills{
-    flex-wrap: nowrap;
-  }
-  .cardSkills::after {
-    background-position: 0 99%;
+
+  .cardSkills {
+    wid background-position: 0 99%;
     background-size: 220%;
+  }
+}
+reen and (max-width: 600px) {
+  .tittleS {
+    font-size: 25px;
   }
 }

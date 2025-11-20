@@ -1,0 +1,32 @@
+.iconCont {
+  gap: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.icon {
+  opacity: 0.8;
+  font-size: clamp(24px, 1.2vw, 28px);
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+  min-width: 30px;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.socialLink {
+  text-decoration: none;
+  color: white;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+
+
+

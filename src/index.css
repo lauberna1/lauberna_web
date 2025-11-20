@@ -1,38 +1,12 @@
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
-:root {
-  font-family: Helvetica;
-  font-size: 48px;
-  font-weight: 300;
-  color-scheme: light dark;
-  color: #070707;
-  background-color: #000000;
-  font-synthesis: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 html,
-#root{
-  height: 100vh;
-}
-
-.aux1 {
-  height: 100%;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 700;
-}
-
-
-@media screen and (max-height: 1200px) {
-  :root{
-    height: 100%;
-    overflow-y: scroll;
-  }
+body {
+  background-color: black;
 }
