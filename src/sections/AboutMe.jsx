@@ -34,18 +34,21 @@ const AboutMe = () => {
       data-ready={aboutReady ? "true" : "false"}
     >
       {/* Perfil con fotografía destacada */}
-      <section className={s.profile}>
+      {/*  <section className={s.profile}>
         <img
           alt={profileImage.alt}
           className={s.profilePic}
           src={profileImage.src}
           loading="lazy"
         />
-      </section>
+      </section> */}
       {/* Descripción en texto y hashtags dinámicos */}
       <section className={s.descripcion}>
         <div className={s.desCont}>
-          <h2 className={s.titulo}>{aboutTitle}</h2>
+          <h2 className={s.titulo}>
+            <p className={s.sectionKicker}>Profile</p>
+            {aboutTitle}
+          </h2>
           <div className={s.parrafo}>
             {aboutParagraphs.map((p, i) => (
               <p key={i}>{p}</p>

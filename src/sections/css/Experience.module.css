@@ -2,7 +2,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 20px 80px;
+  padding: 0 60px;
+  padding-bottom: 80px;
   box-sizing: border-box;
 }
 
@@ -21,8 +22,19 @@
   color: white;
 }
 
+.sectionKicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
 .title {
   font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .timeline {
@@ -88,7 +100,7 @@
 
 .content {
   border-radius: 18px;
-  padding: 24px 28px;
+  padding: 0 28px;
   width: 100%;
   /*  background: rgb(0, 29, 30); */
   /*   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35); */
@@ -146,15 +158,15 @@
 }
 
 @media screen and (max-width: 1000px) {
+  .sectionKicker {
+    letter-spacing: 0.28em;
+  }
   .title {
     font-size: 30px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .section {
-    padding: 0 16px 60px;
-  }
   .timeline {
     padding-left: 48px;
   }
@@ -165,7 +177,7 @@
     right: calc(100% + 23px);
   }
   .content {
-    padding: 20px;
+    padding: 0 20px;
   }
   .company {
     font-size: 22px;
@@ -176,6 +188,13 @@
 }
 
 @media screen and (max-width: 600px) {
+  .section {
+    padding: 0 20px 60px;
+  }
+  .sectionKicker {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+  }
   .title {
     font-size: 25px;
   }

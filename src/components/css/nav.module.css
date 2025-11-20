@@ -8,7 +8,8 @@
   z-index: 999999999990999999999;
   display: flex;
   justify-content: center;
-  transition: opacity 0.5s ease-in-out;
+  transform: translateY(0);
+  transition: transform 0.35s ease, opacity 0.35s ease;
   will-change: transform, opacity;
   /* background-color: var(--black); */
   backdrop-filter: blur(15px);
@@ -23,7 +24,7 @@
 .navbar[data-intro-ready="true"] {
   /*   transform: translateY(0); */
   opacity: 1;
-  transition-delay: 0.3s;
+/*   transition-delay: 0.3s; */
 }
 
 .hidden {
@@ -94,6 +95,7 @@
 @media (prefers-reduced-motion: reduce) {
   .navbar {
     transition: none;
+    transform: translateY(0) !important;
   }
   .item {
     transition: none;
@@ -104,7 +106,9 @@
 }
 @media screen and (max-width: 800px) {
   .list {
-    width: 90%;
+    width: 82%;
+    font-size: 14px;
     justify-content: center;
+    gap: 15px;
   }
 }

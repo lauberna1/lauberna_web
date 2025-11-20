@@ -4,100 +4,132 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+  overflow-x: hidden;
+  /*   gap: 35px; */
+}
+
+.sectionKicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.certificateLink {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 .study {
-  width: 90%;
+  width: 100%;
   max-width: 1250px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 35px;
-  padding-bottom: 80px;
+}
+.tittleS {
+  text-align: left;
+  font-size: 40px;
+  color: rgb(254, 254, 254);
+  height: fit-content;
+  width: 100%;
+  max-width: 1250px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .cards {
-  gap: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-}
-
-.tittleS {
-  width: 100%;
-  text-align: left;
-  font-size: 40px;
-  color: rgba(238, 255, 254, 0.936);
-  height: fit-content;
-  z-index: 9999;
-}
-
-.certificateLink {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  border-bottom: solid 1px transparent;
-  transition: border-color 0.35s ease;
+  gap: 20px;
 }
 .card {
+  --card-bg: rgba(0, 35, 36, 0.622);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --hover-glow: rgba(0, 173, 158, 0.55);
+  height: 140px;
   position: relative;
-  width: calc(100% - 60px);
-  height: 90px;
-  padding: 30px;
   border-radius: 20px;
+  padding: 30px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: rgb(0, 29, 30);
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
-  transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: transform 200ms ease, border-color 200ms ease,
+    box-shadow 250ms ease, background 250ms ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+  isolation: isolate;
 }
 .card::after {
-  opacity: 0;
-  z-index: -3;
   content: "";
-  width: 150%;
-  left: -50px;
-  border-radius: 50px;
-  background-size: 100%;
-  height: 100%;
   position: absolute;
+  inset: -30%;
+  border-radius: 40px;
   background-image: linear-gradient(
     150deg,
-    rgb(0, 75, 63),
-    rgb(0, 154, 141) 15%,
-    rgb(0, 160, 162),
-    rgb(0, 158, 129) 100%
+    rgb(0, 93, 78),
+    rgb(0, 173, 158),
+    rgb(0, 195, 198),
+    rgb(0, 73, 60)
   );
-  transition: opacity 0.2s ease-in-out;
-  background-position: 300% 99%;
-  background-size: 150%;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.5s ease;
+  z-index: -1;
+  filter: blur(0.5px);
 }
-.cardHasCertificate:hover {
-  transform: scale(1.02);
+.cardHasCertificate {
+  cursor: pointer;
 }
-.cardHasCertificate:hover .title {
+.cardHasCertificate:focus-visible {
+  outline: 2px solid rgba(0, 173, 158, 0.6);
+  outline-offset: 4px;
+}
+.cardHasCertificate:is(:hover, :focus-visible) {
+  transform: translateY(-4px);
+  border-color: var(--hover-glow);
+  box-shadow: 0 25px 45px rgba(0, 173, 158, 0.18);
+  background: radial-gradient(
+      circle at top,
+      rgba(0, 173, 158, 0.2),
+      transparent 55%
+    ),
+    var(--card-bg);
+}
+.cardHasCertificate:is(:hover, :focus-visible)::after {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+.cardHasCertificate:is(:hover, :focus-visible) .title {
   color: white;
+  text-shadow: 0 2px 12px rgba(0, 173, 158, 0.6);
 }
-.cardHasCertificate:hover::after {
-  opacity: 1;
-}
-.cardHasCertificate:hover .line {
-  opacity: 1;
-  width: 35%;
+.cardHasCertificate:is(:hover, :focus-visible) .line {
+  opacity: 0.85;
+  transform: translate(-50%, -50%) scaleX(1);
 }
 .cardHeader {
   height: 80px;
-  width: 100%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,23 +138,23 @@
 .title {
   background: linear-gradient(
     150deg,
-    rgb(0, 100, 83),
-    rgb(5, 225, 207) 15%,
-    rgb(0, 206, 209),
-    rgb(0, 158, 129) 100%
+    rgb(0, 93, 78),
+    rgb(0, 173, 158),
+    rgb(0, 195, 198),
+    rgb(0, 73, 60)
   );
   background-clip: text;
   color: transparent;
   background-position: 120% 50%;
-  font-size: 22px;
-  width: fit-content;
+  font-size: 23px;
+  width: 100%;
   transition: color 0.1s ease-in-out;
 }
 .icons {
   margin-top: 15px;
   display: flex;
   gap: 8px;
-  width: 70%;
+  width: 100%;
   flex-wrap: wrap;
   font-size: 20px;
   color: white;
@@ -130,13 +162,14 @@
 }
 .line {
   border-bottom: solid rgb(255, 255, 255) 1px;
-  width: 20%;
+  width: clamp(120px, 32%, 220px);
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.2s ease-in-out;
-  opacity: 0.7;
+  transform: translate(-50%, -50%) scaleX(0.5);
+  transform-origin: center;
+  transition: transform 200ms ease, opacity 200ms ease;
+  opacity: 0.5;
 }
 .info {
   height: 130px;
@@ -146,51 +179,54 @@
   justify-content: center;
   gap: 10px;
   align-items: flex-end;
-  width: 100%;
+  width: 40%;
 }
-.cardHasCertificate:hover .tit {
+.cardHasCertificate:is(:hover, :focus-visible) .tit {
   color: white;
 }
 .tit {
-  width: 80%;
-  color: rgba(255, 255, 255, 0.681);
+  width: 100%;
+  color: rgba(255, 255, 255, 0.83);
   font-size: 20px;
   text-align: right;
 }
 .time {
   margin-top: 8px;
   display: flex;
-  justify-content: "center";
-/*   flecolor: white; */
-  opacit9 0.75;
-  flex-wrap: wrap;
-  text-align: right;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: 16px;
+  color: white;
+  opacity: 0.6;
 }
-.skills {
+.time p {
+  margin: 0;
+}
+
 .skills {
   width: 100%;
   max-width: 1250px;
-  justify-content: center;
+  display: flex;
   justify-content: center;
   flex-direction: column;
-  flex-wrap: 5rap;
-  border: solid red;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 352;
+  gap: 35px;
   padding-bottom: 80px;
+}
 
-.skillIcons {
 .skillIcons {
   gap: 40px;
-  width: 100%;
   max-width: 700px;
-  display: flex;
+  width: 100%;
+  color: white;
   display: flex;
   justify-content: center;
-  align-items: space-between;
+  align-items: center;
   flex-wrap: wrap;
-
-.skillIcon {
+}
 .skillIcon {
   font-size: 35px;
   display: flex;
@@ -205,20 +241,23 @@
   font-size: 12px;
 }
 @media screen and (max-width: 1000px) {
+  .sectionTitle {
+    font-size: 30px;
+  }
+
+  .sectionKicker {
+    letter-spacing: 0.28em;
+  }
+
+  .tit {
     font-size: 16px;
   }
-  .time,
-  .certificateLink {
-    font-size: 15px;
+  .time {
+    font-size: 14px;
   }
   .title {
-  .title {
-    font-size: 18px;
+    font-size: 20px;
   }
-  .card:hover .line {
-    opacity: 1;
-  }
-  .tittleS {
   .tittleS {
     font-size: 30px;
   }
@@ -229,35 +268,47 @@
     font-weight: 700;
     font-size: 12px;
   }
-
-@media screen and (max-width: 800px) {
-  .line {
-
-
-.line {
-    display: none;
-  }6  .skills {
-    padding-bottom: 60px;
-  }study {
-    padding-bottom: 60px;
+  .card {
+    height: 130px;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+  .line {
+    display: none;
+  }
+  .card {
+    height: 120px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+    padding-bottom: 60px;
+  }
+  .skills {
+    padding-bottom: 60px;
+  }
+  .sectionTitle {
+    font-size: 25px;
+  }
+
+  .sectionKicker {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+  }
+
+  .tittleS {
+    font-size: 25px;
+  }
   .icons {
-    font-size: 16px;
+    font-size: 18px;
     margin-top: 10px;
   }
   .tit {
-    font-size: 12px;
+    font-size: 14px;
   }
   .time {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 5px;
-  }
-  .time,
-  .certificateLink {
     font-size: 12px;
   }
   .title {
@@ -266,31 +317,12 @@
   }
   .info {
     justify-content: center;
-    justify-content: center;
     gap: 0px;
+    width: 50%;
   }
-  .card {
-    height: 60px  .tittleS {
-    font-size: 25px;
-  };
-    min-height: 20px;
-  }
+
   .cardHeader {
     justify-content: center;
     width: 50%;
-    width: 50%;
-  }
-  .line {
-    display: none;
-  }
-
-  .cardSkills {
-    wid background-position: 0 99%;
-    background-size: 220%;
-  }
-}
-reen and (max-width: 600px) {
-  .tittleS {
-    font-size: 25px;
   }
 }

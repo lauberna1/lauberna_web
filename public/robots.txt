@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lauberna.dev/sitemap.xml

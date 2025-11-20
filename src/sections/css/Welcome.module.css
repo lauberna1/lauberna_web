@@ -4,18 +4,18 @@
   align-items: center;
   max-height: 1500px;
   height: 100vh;
-  min-height: 500px;
+  min-height: 650px;
   max-height: 1300px;
   width: 100vw;
   position: relative;
   padding: 0 30px;
   box-sizing: border-box;
-  transition: height .6s ease;
+  transition: height 0.6s ease;
 }
 
-.home[data-divider-played="true"] {
+/* .home[data-divider-played="true"] {
   height: calc(100vh - 200px);
-}
+} */
 
 .home::before,
 .home::after {
@@ -111,7 +111,7 @@
 
 .name {
   line-height: 95%;
-  font-size: 120px;
+  font-size: 110px;
   display: flex;
   flex-direction: column;
   margin-left: -8px;
@@ -180,6 +180,10 @@
   transition-delay: 0.35s;
 }
 
+.home[data-divider-played="true"] .divider {
+  transition: none;
+}
+
 .home[data-ready="true"] .title {
   opacity: 1;
   transform: translateY(0px) scale(1);
@@ -202,27 +206,27 @@
 }
 
 .home[data-ready="true"] .title:first-of-type {
-  transition-delay: 0.8s;
+  transition-delay: 0.7s;
 }
 
 .home[data-ready="true"] .title:last-of-type {
-  transition-delay: 1s;
+  transition-delay: 0.9s;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1280px) {
   .name {
-    font-size: 90px;
+    font-size: 80px;
   }
   .home[data-ready="true"] .divider {
-    height: 231px;
+    height: 208px;
   }
 }
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
   .home[data-divider-played="true"] {
-    height: 80vh;
+    height: 100vh;
     min-height: 700px;
   }
   .name {
-    font-size: 80px;
+    font-size: 60px;
   }
 
   .cont {
@@ -231,6 +235,7 @@
     justify-content: center;
     text-align: center;
     gap: 50px;
+    margin-bottom: 60px;
   }
 
   .title {
@@ -242,7 +247,7 @@
   }
 
   .hi {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .name {
@@ -253,7 +258,6 @@
     width: min(360px, 70vw);
     height: 4px;
     margin: 10px 0 0;
-    transition: none;
     transition: width 0.3s ease, opacity 0.6s ease;
   }
 
@@ -264,12 +268,6 @@
 }
 
 @media (max-width: 800px) {
-  .name {
-    font-size: 50px;
-  }
-  .hi {
-    font-size: 16px;
-  }
   .scrollIndicator svg {
     display: none;
   }

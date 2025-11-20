@@ -13,7 +13,9 @@ const Experience = () => {
     <section id="experience" className={s.section}>
       <div className={s.inner}>
         <header className={s.header}>
-          <h2 className={s.title}>Experiencia</h2>
+          <h2 className={s.title}>
+            <p className={s.sectionKicker}>Career</p>Experience
+          </h2>
         </header>
 
         <div className={s.timeline}>
@@ -34,7 +36,12 @@ const Experience = () => {
                     <span className={s.role}>{exp.role}</span>
                   </div>
                   <h3 className={s.company}>
-                    <a href={exp.companyUrl} className={s.companyLink} target="_blank" rel="noreferrer">
+                    <a
+                      href={exp.companyUrl}
+                      className={s.companyLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {exp.company} <MdOpenInNew className={s.openInNew} />
                     </a>
                   </h3>
