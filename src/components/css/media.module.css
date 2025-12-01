@@ -1,4 +1,4 @@
-.iconCont {
+.mediaIconGroup {
   gap: 12px;
   display: flex;
   flex-direction: row;
@@ -6,27 +6,52 @@
   align-items: center;
 }
 
-.icon {
-  opacity: 0.8;
-  font-size: clamp(24px, 1.2vw, 28px);
-  cursor: pointer;
-  transition: transform 0.1s ease-in-out;
-  min-width: 30px;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-.socialLink {
+.mediaLink {
   text-decoration: none;
   color: white;
   padding: 0;
   margin: 0;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
 }
 
+.mediaLink:hover {
+  transform: translateY(-3px);
+}
 
+.mediaIcon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 22px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--social-color, #ffffff) 15%, transparent),
+    color-mix(in srgb, var(--social-color, #ffffff) 8%, transparent)
+  );
+  border: 1px solid
+    color-mix(in srgb, var(--social-color, #ffffff) 25%, transparent);
+  color: var(--social-color, #ffffff);
+  backdrop-filter: blur(10px);
+  filter: brightness(1.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
 
+.mediaIcon svg,
+.mediaIcon > * {
+  width: 1em;
+  height: 1em;
+}
 
+.mediaLink:hover .mediaIcon {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px
+    color-mix(in srgb, var(--social-color, #ffffff) 25%, transparent);
+  filter: brightness(1.3);
+}

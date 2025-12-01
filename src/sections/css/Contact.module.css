@@ -1,0 +1,181 @@
+.contactSection {
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 140px;
+  margin-top: 100px;
+}
+
+.contactHeading {
+  max-width: 720px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactKicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.contactTitle {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 56px);
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.contactSubtitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contactGrid {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.contactCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 22px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(18px);
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.35s ease, transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.contactCard::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: -1;
+}
+
+.contactCard:hover,
+.contactCard:focus-visible {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(8, 8, 20, 0.45);
+}
+
+.contactCard:hover::before,
+.contactCard:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contactCard:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
+
+.contactIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.contactCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contactCardLabel {
+  margin: 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contactCardHandle {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.contactCardDescription {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contactArrow {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.35s ease;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.contactCard:hover .contactArrow,
+.contactCard:focus-visible .contactArrow {
+  transform: translateX(6px);
+}
+
+@media (max-width: 700px) {
+  .contactSection {
+    padding: 0 20px;
+  }
+
+  .contactGrid {
+    gap: 20px;
+  }
+
+  .contactCard {
+    padding: 24px;
+  }
+}

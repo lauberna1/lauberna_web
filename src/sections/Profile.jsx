@@ -1,17 +1,19 @@
-import Knowledge from "./Knowledge";
-import Projects from "./Projects";
 import AboutMe from "./AboutMe";
+import Contact from "./Contact";
 import Experience from "./Experience";
+import Projects from "./Projects";
+import Studies from "./Studies";
+import TechStack from "./TechStack";
 
-// Contenedor que agrupa la parte central del portfolio.
-const Profile = () => {
-  return (
-    <>
-      <AboutMe />
-      <Knowledge />
-      <Experience />
-      <Projects />
-    </>
-  );
-};
+const Profile = () => (
+  <div>
+    <AboutMe />
+    <Experience />
+    <TechStack />
+    <Studies />
+    <Projects />
+    <Contact />
+  </div>
+);
+
 export default Profile;

@@ -2,21 +2,21 @@ export const studies = [
   {
     school: "DIGITAL HOUSE",
     degree: "Professional Developer",
-    iconKeys: ["javascript", "database", "react", "java", "spring", "mysql", "plus"],
+    iconKeys: ["javascript", "database", "react", "java", "spring", "mysql"],
     time: "July 2022 - April 2024",
     certificate: "https://drive.google.com/file/d/1kejv-XDAQeCBa658R4zeUn4DSWeo4yBn/view?usp=drive_link"
   },
   {
     school: "DIGITAL HOUSE",
     degree: "Frontend Specialist",
-    iconKeys: ["nextjs", "figma", "storybook", "graphql", "typescript", "jest", "redux", "plus"],
+    iconKeys: ["nextjs", "figma", "storybook", "graphql", "typescript", "jest", "redux"],
     time: "May - July 2025",
     certificate: "https://drive.google.com/file/d/19mODSCRa0B3dyNSn0I_PI1s9dt0EVINY/view?usp=drive_link"
   },
   {
     school: "DIGITAL HOUSE",
     degree: "Data Skills",
-    iconKeys: ["docker", "selenium", "gitlab", "mysql", "aws", "plus"],
+    iconKeys: ["docker", "selenium", "gitlab", "mysql", "aws"],
     time: "May - July 2025",
     certificate: "https://drive.google.com/file/d/1Ix8hUcB68Sav0dC4Q8QqBcE5fWYwSeUS/view?usp=drive_link"
   },
@@ -55,4 +55,22 @@ export const skills = [
   { name: "Zod", key: "zod" },
 ];
 
-
+export const knowledgeCopy = {
+  studySection: {
+    id: "estudio",
+    kicker: "Certifications",
+    title: "Education",
+    showMoreLabel: "View more",
+    showLessLabel: "View less",
+  },
+  stackSection: {
+    id: "stack",
+    kicker: "Technologies",
+    title: "Tech Stack",
+    ariaLabel: "Technologies used",
+  },
+  certificate: {
+    label: "Certificate",
+    ariaLabelPrefix: "Open certificate for",
+  },
+};

@@ -1,63 +1,61 @@
-.section {
+.experienceSection {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 0 60px;
-  padding-bottom: 80px;
+  margin-bottom: 100px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 99;
 }
 
-.inner {
+.experienceInner {
   width: 100%;
-  max-width: 1250px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 50px;
+  z-index: 99;
 }
 
-.header {
+.experienceHeader {
   display: flex;
   flex-direction: column;
   gap: 12px;
   color: white;
 }
 
-.sectionKicker {
+.experienceKicker {
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.35em;
-  font-size: 0.8rem;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.55);
 }
 
-.title {
+.experienceTitle {
   font-size: 40px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
-.timeline {
+.experienceTimeline {
   position: relative;
   padding-left: 72px;
 }
 
-.line {
+.experienceLine {
   position: absolute;
   left: 24px;
   top: 0px;
   bottom: 0px;
   width: 2px;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 153, 138, 0.9) 0,
-    rgba(0, 215, 199, 0.9) 8px,
-    transparent 8px,
-    transparent 16px
-  );
+  border: 1px dashed hsla(0, 0%, 100%, 0.2);
 }
 
-.items {
+.experienceItems {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -66,22 +64,21 @@
   gap: 32px;
 }
 
-.item {
+.experienceItem {
   position: relative;
   display: flex;
   gap: 24px;
 }
 
-.marker {
+.experienceMarker {
   position: absolute;
-  right: calc(100% + 45px);
+  right: calc(100% + 47px);
   top: 50%;
   transform: translate(50%, -50%);
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgb(0, 29, 30);
-  border: 2px solid rgba(0, 215, 199, 0.9);
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,113 +86,216 @@
   font-size: 22px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
   z-index: 10;
+}
+
+.experienceMarkerImage {
+  width: 70%;
+}
+
+.experienceContent {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.markerImage {
-  width: 80%;
-}
-
-.content {
-  border-radius: 18px;
-  padding: 0 28px;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  /*  background: rgb(0, 29, 30); */
-  /*   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35); */
-  /*   border: 1px solid rgba(0, 215, 199, 0.9); */
+  padding: 32px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.35s ease, transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.companyLink {
+.experienceContent::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: -1;
+}
+
+.experienceContent:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
+
+.experienceContent:is(:hover, :focus-visible) {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(8, 8, 20, 0.45);
+}
+
+.experienceContent:is(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.experienceFooter {
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: fit-content;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
-.openInNew {
-  font-size: 24px;
+.experienceArrow {
+  margin-left: auto;
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: transform 0.35s ease;
 }
 
-.meta {
+.experienceContent:is(:hover, :focus-visible) .experienceArrow {
+  transform: translateX(6px);
+}
+
+.experienceMeta {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 12px;
   font-size: 14px;
   letter-spacing: 0.08em;
   color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
   text-transform: uppercase;
+  margin-bottom: 4px;
 }
 
-.role {
+.period {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.experienceRole {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 14px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--secondary-color-light);
+  border: 1px solid var(--secondary-color-light);
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.company {
+.experienceCompany {
   margin: 12px 0 8px;
   font-size: 26px;
-  color: white;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #ffffff;
 }
 
-.company a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
-}
-
-.company a:hover {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-.description {
+.experienceDescription {
   font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.694);
-  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 8px;
 }
 
 @media screen and (max-width: 1000px) {
-  .sectionKicker {
-    letter-spacing: 0.28em;
-  }
-  .title {
+  .experienceTitle {
     font-size: 30px;
+  }
+  .experienceCompany {
+    font-size: 20px;
+  }
+  .experienceDescription {
+    font-size: 16px;
+  }
+  .period {
+    font-size: 14px;
+  }
+  .experienceRole {
+    font-size: 13px;
+  }
+  .experienceArrow {
+    font-size: 24px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .timeline {
-    padding-left: 48px;
+  .experienceTimeline {
+    padding-left: 56px;
   }
-  .marker {
+  .experienceLine {
+    left: 20px;
+  }
+  .experienceMarker {
     width: 46px;
     height: 46px;
-    font-size: 18px;
-    right: calc(100% + 23px);
+    right: calc(100% + 35px);
   }
-  .content {
-    padding: 0 20px;
+  .experienceContent {
+    padding: 24px;
   }
-  .company {
-    font-size: 22px;
+  .experienceCompany {
+    font-size: 20px;
   }
-  .description {
-    font-size: 15px;
+  .period {
+    font-size: 13px;
+  }
+  .experienceRole {
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .section {
-    padding: 0 20px 60px;
+  .experienceSection {
+    padding: 0 20px;
+    margin-bottom: 60px;
   }
-  .sectionKicker {
-    font-size: 0.7rem;
+
+  .experienceTimeline {
+    padding-left: 52px;
+  }
+
+  .experienceLine {
+    left: 18px;
+  }
+
+  .experienceMarker {
+    width: 40px;
+    height: 40px;
+    right: calc(100% + 32px);
+  }
+
+  .experienceKicker {
+    font-size: 10px;
     letter-spacing: 0.22em;
   }
-  .title {
+
+  .experienceTitle {
     font-size: 25px;
+  }
+
+  .experienceDescription {
+    font-size: 15px;
+  }
+
+  .period {
+    font-size: 12px;
+  }
+
+  .experienceRole {
+    font-size: 11px;
+  }
+
+  .experienceArrow {
+    font-size: 22px;
   }
 }

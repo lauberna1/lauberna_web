@@ -1,23 +1,14 @@
-import Media from "./Media";
-import s from "./css/Footer.module.css";
 import React from "react";
+import s from "./css/Footer.module.css";
 
-// Cierre del sitio con redes y año actualizado automáticamente.
 const Footer = () => {
   const year = new Date().getFullYear();
+
   return (
-    <footer className={s.footer}>
-      <section className={s.upper}>
-        <div className={s.divider}></div>
-        <Media />
-        <div className={s.divider}></div>
-      </section>
-      <section className={s.lower}>
-{/*         <a href="">resume</a>
-        <p>|</p> */}
-        <p>© {year}</p>
-      </section>
+    <footer className={s.footerUpper}>
+      {year} developed by Laureano Berna
     </footer>
   );
 };
+
 export default Footer;

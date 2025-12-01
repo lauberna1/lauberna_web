@@ -1,0 +1,230 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.heading {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-width: 330px;
+  padding: 32px;
+  min-height: 230px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(18px);
+  color: #ffffff;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 0.35s ease, transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 255, 255, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: -1;
+}
+
+.cardInteractive {
+  cursor: pointer;
+}
+
+.cardInteractive:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
+
+.cardInteractive:is(:hover, :focus-visible) {
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(8, 8, 20, 0.45);
+}
+
+.cardInteractive:is(:hover, :focus-visible)::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.schoolChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary-color-light);
+  background: rgba(182, 56, 255, 0.15);
+  border: 1px solid var(--secondary-color-light);
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.time {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.iconRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 23px;
+  color: rgba(255, 255, 255, 0.9);
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+.iconGlyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.degree {
+  margin: 12px 0 8px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+}
+
+.certificateLink {
+  margin: 0;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.certificateMuted {
+  margin: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cardArrow {
+  margin-left: auto;
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: transform 0.35s ease;
+}
+
+.cardInteractive:is(:hover, :focus-visible) .cardArrow {
+  transform: translateX(6px);
+}
+
+.cardArrowHidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: none !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .heading {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .section {
+    padding: 0 20px;
+    margin-bottom: 50px;
+  }
+  .heading {
+    font-size: 25px;
+  }
+  .kicker {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+  .cards {
+    gap: 20px;
+  }
+  .card {
+    padding: 24px;
+    min-height: 200px;
+  }
+  .degree {
+    font-size: 20px;
+  }
+  .iconRow {
+    font-size: 20px;
+  }
+
+  .cardArrow {
+    font-size: 24px;
+  }
+}

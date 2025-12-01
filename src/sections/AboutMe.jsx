@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { aboutParagraphs, aboutTitle, profileImage } from "../data/about";
+import { aboutCopy, aboutParagraphs } from "../data/about";
 import s from "./css/AboutMe.module.css";
 
-// Bloque dedicado a la presentación personal y resumen biográfico.
 const AboutMe = () => {
   const [aboutReady, setAboutReady] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined") {
+      return;
+    }
 
     if (window.__welcomeAnimDone) {
       const frame = window.requestAnimationFrame(() => setAboutReady(true));
@@ -30,33 +31,25 @@ const AboutMe = () => {
   return (
     <div
       id="about"
-      className={s.about}
+      className={s.aboutSection}
       data-ready={aboutReady ? "true" : "false"}
     >
-      {/* Perfil con fotografía destacada */}
-      {/*  <section className={s.profile}>
-        <img
-          alt={profileImage.alt}
-          className={s.profilePic}
-          src={profileImage.src}
-          loading="lazy"
-        />
-      </section> */}
-      {/* Descripción en texto y hashtags dinámicos */}
-      <section className={s.descripcion}>
-        <div className={s.desCont}>
-          <h2 className={s.titulo}>
-            <p className={s.sectionKicker}>Profile</p>
-            {aboutTitle}
+      <div className={s.aboutDescription}>
+        <img src="/Profile.webp" alt="About Me" className={s.aboutImage} />
+        <div className={s.aboutContent}>
+          <h2 className={s.aboutHeading}>
+            <p className={s.aboutKicker}>{aboutCopy.kicker}</p>
+            {aboutCopy.title}
           </h2>
-          <div className={s.parrafo}>
-            {aboutParagraphs.map((p, i) => (
-              <p key={i}>{p}</p>
+          <div className={s.aboutParagraphs}>
+            {aboutParagraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
             ))}
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
+
 export default AboutMe;

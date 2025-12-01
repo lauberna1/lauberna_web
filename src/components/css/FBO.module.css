@@ -1,0 +1,22 @@
+.canvasContainer {
+  width: 500px;
+  height: 500px;
+}
+
+.canvas {
+  width: 500px !important;
+  height: 500px !important;
+  background: transparent !important;
+}
+
+@media (max-width: 600px) {
+  .canvasContainer {
+    width: 400px;
+    height: 400px;
+  }
+
+  .canvas {
+    width: 400px !important;
+    height: 400px !important;
+  }
+}

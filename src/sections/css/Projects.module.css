@@ -1,195 +1,263 @@
-.projects {
+.projectsSection {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 35px;
-  padding-bottom: 80px;
+  gap: 50px;
   padding: 0 60px;
   box-sizing: border-box;
   margin-bottom: 100px;
 }
 
-.projectHeading {
-  width: 100%;
-  max-width: 1250px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  text-align: left;
-}
-
-.sectionKicker {
+.projectsSectionKicker {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 12px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
 }
 
-.projectTitle {
+.projectsSectionTitle {
   width: 100%;
-  max-width: 1250px;
+  max-width: 1100px;
   margin: 0;
   text-align: left;
   color: #fff;
   font-size: 40px;
   font-weight: 600;
-  letter-spacing: -0.02em;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
-.cards {
+.projectsSectionGridWrapper {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
+}
+
+.projectsSectionGrid {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 28px;
 }
 
-.projectLink {
+.projectsSectionAdditionalContainer {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  max-height: 0;
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  clip-path: inset(0 0 100% 0);
+  transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    margin-top 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    padding-top 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    padding-bottom 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projectsSectionAdditionalContainerExpanded {
+  max-height: 2000px;
+  margin-top: 28px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  clip-path: inset(0 0 0 0);
+}
+
+.projectsSectionLink {
   text-decoration: none;
   color: inherit;
 }
 
-.projectCard {
+.projectsSectionCard {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  border-radius: 20px;
-  
+  width: 100% !important;
+  border-radius: 8px;
+  z-index: 9;
+  justify-content: space-between;
   transition: transform 0.25s ease, border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
 
-.projectCardInteractive {
+.projectsSectionCardInteractive {
   cursor: pointer;
 }
 
-.projectCardInteractive:hover {
-  transform: translateY(-6px);
- /*  border-color: rgba(255, 255, 255, 0.28); */
-/*   box-shadow: 0 20px 40px rgba(2, 4, 24, 0.45); */
+.projectsSectionCardInteractive:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
 }
 
-.projectImage {
+.projectsSectionCardInteractive:is(:hover, :focus-visible) {
+  transform: translateY(-6px);
+}
+
+.projectsSectionImage {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   border-radius: 16px;
   overflow: hidden;
-  background: #050510;
+  transition: box-shadow 0.35s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
-.projectGoIcon {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 32px;
-  color: #fff;
-  opacity: 0;
-  transform: translateY(18px) scale(0.9) rotate(-90deg);
-  transition: transform 0.35s ease, opacity 0.35s ease;
-  z-index: 99;
-}
-
-.projectImageMedia {
+.projectsSectionImageMedia {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
 
-.projectCardInteractive:hover .projectGoIcon {
-  opacity: 1;
-  transform: translateY(0) scale(1.2);
-}
-
-.projectCardInteractive:hover .projectImageMedia {
+.projectsSectionCardInteractive:is(:hover, :focus-visible)
+  .projectsSectionImageMedia {
   transform: scale(1.05);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
-.projectDescription {
+.projectsSectionDescription {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 12px;
+  gap: 18px;
+  align-items: flex-start;
 }
 
-.projectDescription h3 {
+.projectsSectionDescription h3 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255);
 }
 
-.projectIcons {
+.projectsSectionText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 420px;
+}
+
+.projectsSectionDescriptionText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.projectsSectionIconList {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.projectIcon {
+.projectsSectionIconGlyph {
   font-size: 22px;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgb(255, 255, 255);
   transition: transform 0.2s ease;
 }
 
-.projectCardInteractive:hover .projectIcon {
+.projectsSectionArrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+  z-index: 10;
+}
+
+.projectsSectionCardInteractive:is(:hover, :focus-visible)
+  .projectsSectionArrow {
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+.projectsSectionButtonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.projectsSectionToggleButton {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+}
+
+.projectsSectionToggleButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   transform: translateY(-2px);
 }
 
-@media (max-width: 1000px) {
-  .sectionKicker {
-    letter-spacing: 0.28em;
-  }
+.projectsSectionToggleButton:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 4px;
+}
 
-  .projectTitle {
+.projectsSectionToggleButton:active {
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 1000px) {
+  .projectsSectionTitle {
     font-size: 30px;
   }
-  .cards {
+  .projectsSectionGrid {
     gap: 22px;
   }
 }
 
-@media (max-width: 800px) {
-  .cards {
+@media screen and (max-width: 800px) {
+  .projectsSectionGrid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 600px) {
-  .projects {
+@media screen and (max-width: 600px) {
+  .projectsSection {
     padding: 0 20px;
-    padding-bottom: 30px;
+    margin-bottom: 50px;
   }
-  .projectTitle {
+  .projectsSectionTitle {
     font-size: 25px;
   }
-
-  .sectionKicker {
-    font-size: 0.7rem;
+  .projectsSectionKicker {
+    font-size: 10px;
     letter-spacing: 0.22em;
   }
-
-  .projectDescription h3 {
-    font-size: 1.1rem;
+  .projectsSectionDescription h3 {
+    font-size: 18px;
   }
-
-  .projectIcon {
+  .projectsSectionDescriptionText {
+    font-size: 14px;
+  }
+  .projectsSectionIconGlyph {
     font-size: 20px;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .projectCard,
-  .projectCardInteractive:hover,
-  .projectImageMedia,
-  .projectGoIcon,
-  .projectIcon {
-    transition: none;
+  .projectsSectionToggleButton {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+  .projectsSectionButtonWrapper {
+    margin-top: 30px;
   }
 }

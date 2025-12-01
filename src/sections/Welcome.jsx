@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import s from "./css/Welcome.module.css";
+import FBOParticlesScene from "../components/FBOParticles";
 import Media from "../components/Media";
 import { welcomeNameParts } from "../data/welcome";
-import { IoIosArrowDown } from "react-icons/io";
-// Hero inicial que presenta la identidad y los enlaces sociales principales.
+import s from "./css/Welcome.module.css";
+
 const Welcome = () => {
   const [introReady, setIntroReady] = useState(false);
   const [dividerPlayed, setDividerPlayed] = useState(false);
@@ -14,52 +14,62 @@ const Welcome = () => {
   }, []);
 
   useEffect(() => {
-    if (!introReady || dividerPlayed) return;
-    const timeout = window.setTimeout(() => setDividerPlayed(true), 1100);
+    if (!introReady || dividerPlayed) {
+      return;
+    }
+    const timeout = window.setTimeout(() => setDividerPlayed(true), 600);
     return () => window.clearTimeout(timeout);
   }, [introReady, dividerPlayed]);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !dividerPlayed) return;
+    if (typeof window === "undefined" || !dividerPlayed) {
+      return;
+    }
     window.__welcomeAnimDone = true;
     window.dispatchEvent(new Event("welcomeAnimationCompleted"));
   }, [dividerPlayed]);
 
+  useEffect(() => {
+    if (typeof document === "undefined" || dividerPlayed) {
+      return;
+    }
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+    };
+  }, [dividerPlayed]);
+
   return (
-    <section
+    <div
       id="home"
-      className={s.home}
+      className={s.welcomeHero}
       data-ready={introReady ? "true" : "false"}
       data-divider-played={dividerPlayed ? "true" : "false"}
     >
-      <div className={s.cont}>
-        <div className={s.title} role="group" aria-labelledby="welcome-title">
-          <span className={s.hi}>Hi, I'm</span>
-          <h1 id="welcome-title" className={s.name}>
+      <div className={s.welcomeBackground} />
+      <div className={s.welcomeContent}>
+        <div className={s.leftSection}>
+          <h1 className={s.welcomeName}>
             <span>{welcomeNameParts[0]}</span>
             <span>{welcomeNameParts[1]}</span>
           </h1>
-          <Media />
+          <div className={s.role}>
+            <span className={s.roleText}>Front End Developer</span>
+          </div>
         </div>
-        <div className={s.divider} />
-        <div
-          className={`${s.title} ${s.dev}`}
-          role="group"
-          aria-labelledby="welcome-title"
-        >
-          <span className={s.hi}>And I'm a</span>
-          <h1 id="welcome-title" className={s.name}>
-            <span>FRONTEND</span>
-            <span>DEV</span>
-          </h1>
+        <div className={s.rightSection}>
+          <FBOParticlesScene />
         </div>
       </div>
-      <div className={s.scrollIndicator}>
-        <IoIosArrowDown />
-        <IoIosArrowDown />
-        <IoIosArrowDown />
-      </div>
-    </section>
+    </div>
   );
 };
 

@@ -5,8 +5,9 @@ export const projects = [
     imageSrc: "/Projects/LaProa.png",
     techKeys: ["wordpress"],
     hover: true,
-    alt: "La Proa",
+    alt: "La Proa website screenshot",
     href: "https://laproa.com.ar/",
+    description: "",
   },
   {
     id: 2,
@@ -14,8 +15,10 @@ export const projects = [
     imageSrc: "/Projects/Epyca.png",
     techKeys: ["react", "css"],
     hover: true,
-    alt: "Epyca",
+    alt: "Epyca website screenshot",
     href: "https://epyca-web.netlify.app/",
+    description:
+      "",
   },
   {
     id: 3,
@@ -23,8 +26,10 @@ export const projects = [
     imageSrc: "/Projects/Fibroforma.png",
     techKeys: ["react", "css"],
     hover: true,
-    alt: "Fibroforma",
+    alt: "Fibroforma website screenshot",
     href: "https://www.fibroforma.com.ar/",
+    description:
+      "",
   },
   {
     id: 4,
@@ -32,18 +37,29 @@ export const projects = [
     imageSrc: "/Projects/CasaDeCampo.png",
     techKeys: ["react", "css"],
     hover: true,
-    alt: "Casa de Campo",
+    alt: "Casa de Campo website screenshot",
     href: "https://casadecampo.ar/",
+    description:
+      "",
   },
   {
-    id: 1,
+    id: 5,
     title: "Wine Testing House",
     imageSrc: "/Projects/WineTestingHouse.png",
     techKeys: ["react", "css"],
     hover: true,
-    alt: "Wine Testing House",
+    alt: "Wine Testing House website screenshot",
     href: "https://winetestinghouse.netlify.app/",
+    description:
+      "",
   },
 ];
 
-
+export const projectsCopy = {
+  kicker: "Portfolio",
+  title: "Landing Pages",
+  technologiesAriaLabel: "Technologies used",
+  linkAriaLabelPrefix: "Open",
+  showMoreLabel: "View more",
+  showLessLabel: "View less",
+};
