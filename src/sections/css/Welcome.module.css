@@ -162,7 +162,9 @@
     align-items: center;
     height: 70%;
   }
-
+  .welcomeHero {
+    min-height: 850px;
+  }
   .leftSection {
     width: 100%;
     align-items: center;
@@ -177,7 +179,7 @@
     right: initial;
     align-items: center;
     justify-content: center;
-    top: 160px;
+    top: 200px;
   }
 }
 
@@ -189,7 +191,10 @@
     font-size: 24px;
   }
   .rightSection {
-    top: 120px;
+    top: 100px;
+  }
+  .welcomeHero {
+    min-height: 700px;
   }
 }
 

@@ -9,7 +9,7 @@
   background: transparent !important;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   .canvasContainer {
     width: 400px;
     height: 400px;
@@ -18,5 +18,17 @@
   .canvas {
     width: 400px !important;
     height: 400px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .canvasContainer {
+    width: 300px;
+    height: 300px;
+  }
+
+  .canvas {
+    width: 300px !important;
+    height: 300px !important;
   }
 }

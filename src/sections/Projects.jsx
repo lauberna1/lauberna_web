@@ -133,7 +133,7 @@ const ProjectCard = ({ project }) => {
       </figure>
       <div className={s.projectsSectionDescription}>
         <div className={s.projectsSectionText}>
-          <h3>{title}</h3>
+          <h3 translate="no">{title}</h3>
         </div>
         {techKeys?.length > 0 && (
           <div

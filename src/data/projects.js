@@ -57,7 +57,7 @@ export const projects = [
 
 export const projectsCopy = {
   kicker: "Portfolio",
-  title: "Landing Pages",
+  title: "Projects",
   technologiesAriaLabel: "Technologies used",
   linkAriaLabelPrefix: "Open",
   showMoreLabel: "View more",

@@ -57,13 +57,14 @@ const Welcome = () => {
       <div className={s.welcomeBackground} />
       <div className={s.welcomeContent}>
         <div className={s.leftSection}>
-          <h1 className={s.welcomeName}>
-            <span>{welcomeNameParts[0]}</span>
-            <span>{welcomeNameParts[1]}</span>
+          <h1 translate="no" className={s.welcomeName}>
+            <span translate="no">{welcomeNameParts[0]}</span>
+            <span translate="no">{welcomeNameParts[1]}</span>
           </h1>
-          <div className={s.role}>
+          <div translate="no" className={s.role}>
             <span className={s.roleText}>Front End Developer</span>
           </div>
+          <Media />
         </div>
         <div className={s.rightSection}>
           <FBOParticlesScene />

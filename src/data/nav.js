@@ -3,7 +3,7 @@ export const navItems = [
   { to: "experience", label: "Experience", offset: -80 },
   { to: "stack", label: "Tech Stack", offset: -80 },
   { to: "studies", label: "Education", offset: -80 },
-  { to: "projects", label: "Landing Pages", offset: -80 },
+  { to: "projects", label: "Projects", offset: -80 },
 ];
 
 export const navQuickLinks = [

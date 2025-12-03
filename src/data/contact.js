@@ -2,7 +2,7 @@ export const contactCopy = {
   kicker: "Contact",
   title: "Let’s build something great together.",
   subtitle:
-    "Open to freelance projects and full-time roles. If you see a potential fit or want to discuss an idea, feel free to reach out anytime.",
+    "Open to freelance projects and full-time roles. If you want to discuss an idea, feel free to contact me anytime.",
 };
 
 export const contactMethods = [

@@ -34,8 +34,8 @@ const TechStack = () => {
   return (
     <section className={styles.section}>
       <div id={stackSection.id} className={styles.wrapper}>
-        <h2 className={styles.heading}>
-          <p className={styles.kicker}>{stackSection.kicker}</p>
+        <h2 translate="no" className={styles.heading}>
+          <p translate="no" className={styles.kicker}>{stackSection.kicker}</p>
           {stackSection.title}
         </h2>
         <div className={styles.skillGrid} aria-label={stackSection.ariaLabel}>

@@ -27,10 +27,10 @@ const StudyCard = React.memo(({ item, certificateCopy }) => {
       }
     >
       <header className={styles.cardHeader}>
-        <span className={styles.schoolChip}>{item.school}</span>
+        <span translate="no" className={styles.schoolChip}>{item.school}</span>
         <p className={styles.time}>{item.time}</p>
       </header>
-      <h4 className={styles.degree}>{item.degree}</h4>
+      <h4 translate="no" className={styles.degree}>{item.degree}</h4>
       <div className={styles.iconRow}>
         {item.iconKeys.map((key, ind) => {
           const Icon = resolveKnowledgeIcon(key);
