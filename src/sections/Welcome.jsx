@@ -64,7 +64,7 @@ const Welcome = () => {
           <div translate="no" className={s.role}>
             <span className={s.roleText}>Front End Developer</span>
           </div>
-          <Media />
+          {/* <Media /> */}
         </div>
         <div className={s.rightSection}>
           <FBOParticlesScene />

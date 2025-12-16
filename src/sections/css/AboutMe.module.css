@@ -109,6 +109,33 @@
   gap: 15px;
 }
 
+.aboutHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.highlightChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.chipIcon {
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+}
+
 .aboutHeading {
   font-size: 40px;
   color: white;
@@ -131,10 +158,17 @@
     align-items: center;
     width: 100%;
   }
+  .aboutHighlights {
+    width: 100%;
+    justify-content: flex-start;
+  }
   .aboutParagraphs {
     text-align: left;
     width: 100%;
     font-size: 18px;
+  }
+  .aboutHighlights {
+    justify-content: flex-start;
   }
   .aboutHeading {
     font-size: 30px;
@@ -164,5 +198,9 @@
   .aboutParagraphs {
     width: 100%;
     font-size: 16px;
+  }
+  .aboutHighlights {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
